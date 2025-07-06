@@ -5,6 +5,7 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import LandingPage from "./components/LandingPage";
+import UserGuideModal from "./components/ui/UserGuideModal";
 import { AboutContext } from "./components/about/context/aboutContext";
 import { ExperienceData, SocialLinks } from "./components/constants/constants";
 import { Link } from "./components/types/about";
@@ -19,7 +20,12 @@ import { InitialSkills } from "./components/constants/constants";
 import { ContactInfo } from "./components/contact/types";
 import { useState } from "react";
 import { exportAsReactProject } from "./utils/exportProject";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 function PortfolioEditor() {
   interface HighlightRange {
@@ -27,6 +33,8 @@ function PortfolioEditor() {
     end: number;
     color: string;
   }
+
+  const [showUserGuide, setShowUserGuide] = useState(true);
 
   const predefinedGradients = [
     {
@@ -224,6 +232,11 @@ function PortfolioEditor() {
           Export React Project
         </button>
       </div>
+
+      <UserGuideModal
+        isOpen={showUserGuide}
+        onClose={() => setShowUserGuide(false)}
+      />
     </>
   );
 }
