@@ -226,7 +226,7 @@ function PortfolioEditor() {
           {sections.Contact && <Contact />}
         </contactsContext.Provider>
         <button
-          className="absolute top-4 right-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+          className="cursor-pointer absolute top-4 right-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
           onClick={handleExport}
         >
           Export React Project
