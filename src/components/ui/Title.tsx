@@ -10,9 +10,9 @@ const defaultGradient = "linear-gradient(90deg, #3b82f6, #9333ea)";
 const Title = () => {
   const titleContext = useContext(AboutContext);
   const name: string = titleContext?.name || defaultName;
-  const setName = titleContext?.setName || (() => { });
+  const setName = titleContext?.setName || (() => {});
   const gradient: string = titleContext?.nameGradient || defaultGradient;
-  const setGradient = titleContext?.setNameGradient || (() => { });
+  const setGradient = titleContext?.setNameGradient || (() => {});
   const [isEditingColors, setIsEditingColors] = useState(false);
   const [originalGradient, setOriginalGradient] = useState(gradient);
   const [tempColor1, setTempColor1] = useState("#3b82f6");
@@ -93,86 +93,99 @@ const Title = () => {
       </h1>
 
       {isEditingColors && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-          <div className="bg-[#2c2a3a] p-6 rounded-lg shadow-xl text-white max-w-md w-full">
-            <h2 className="text-2xl font-bold mb-4">Edit Gradient</h2>
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-[#2c2a3a] rounded-lg shadow-xl text-white max-h-[90vh] flex flex-col">
+            <div className="p-6 border-b border-gray-600">
+              <h2 className="text-2xl font-bold">Edit Gradient</h2>
+            </div>
 
-            <div className="mb-6">
-              <label className="block text-sm font-medium mb-2">
-                Solid Colors
-              </label>
-              <div className="grid grid-cols-8 gap-2 mb-4">
-                {solidColors.map((color) => (
-                  <button
-                    key={color}
-                    onClick={() => {
-                      setTempColor1(color);
-                      setTempColor2(color);
-                    }}
-                    className="h-8 w-8 rounded-full border-2 hover:scale-110 transition-all cursor-pointer"
+            <div className="flex-1 overflow-y-auto p-6">
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Solid Colors
+                  </label>
+                  <div className="grid grid-cols-8 gap-2 mb-4">
+                    {solidColors.map((color) => (
+                      <button
+                        key={color}
+                        onClick={() => {
+                          setTempColor1(color);
+                          setTempColor2(color);
+                        }}
+                        className="h-8 w-8 rounded-full border-2 hover:scale-110 transition-all cursor-pointer"
+                        style={{
+                          backgroundColor: color,
+                          borderColor:
+                            color === tempColor1 ? "#fff" : "transparent",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Custom Gradient
+                  </label>
+                  <div className="flex gap-4 mb-4">
+                    <div className="flex-1">
+                      <HexColorPicker
+                        color={tempColor1}
+                        onChange={setTempColor1}
+                        className="mb-2"
+                      />
+                      <input
+                        value={tempColor1}
+                        onChange={(e) => setTempColor1(e.target.value)}
+                        className="w-full p-1 text-center bg-gray-700 rounded"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <HexColorPicker
+                        color={tempColor2}
+                        onChange={setTempColor2}
+                        className="mb-2"
+                      />
+                      <input
+                        value={tempColor2}
+                        onChange={(e) => setTempColor2(e.target.value)}
+                        className="w-full p-1 text-center bg-gray-700 rounded"
+                      />
+                    </div>
+                  </div>
+
+                  <div
+                    className="h-12 w-full rounded-lg mb-4"
                     style={{
-                      backgroundColor: color,
-                      borderColor: color === tempColor1 ? "#fff" : "transparent",
+                      background: `linear-gradient(90deg, ${tempColor1}, ${tempColor2})`,
                     }}
-                  />
-                ))}
-              </div>
-
-              <label className="block text-sm font-medium mb-2">
-                Custom Gradient
-              </label>
-              <div className="flex gap-4 mb-4">
-                <div className="flex-1">
-                  <HexColorPicker
-                    color={tempColor1}
-                    onChange={setTempColor1}
-                    className="mb-2"
-                  />
-                  <input
-                    value={tempColor1}
-                    onChange={(e) => setTempColor1(e.target.value)}
-                    className="w-full p-1 text-center bg-gray-700 rounded"
                   />
                 </div>
-                <div className="flex-1">
-                  <HexColorPicker
-                    color={tempColor2}
-                    onChange={setTempColor2}
-                    className="mb-2"
-                  />
-                  <input
-                    value={tempColor2}
-                    onChange={(e) => setTempColor2(e.target.value)}
-                    className="w-full p-1 text-center bg-gray-700 rounded"
-                  />
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Preset Gradients
+                  </label>
+                  <div className="grid grid-cols-3 gap-3">
+                    {predefinedGradients.map((grad) => (
+                      <button
+                        key={grad.name}
+                        onClick={() => handlePresetSelect(grad)}
+                        className="h-12 rounded-lg border-2 hover:border-purple-500 transition-all cursor-pointer"
+                        style={{
+                          backgroundImage: grad.value,
+                          borderColor:
+                            grad.value === gradient ? "#9333ea" : "#e5e7eb",
+                        }}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              <div
-                className="h-12 w-full rounded-lg mb-4"
-                style={{ background: `linear-gradient(90deg, ${tempColor1}, ${tempColor2})` }}
-              />
-
-              <label className="block text-sm font-medium mb-2">
-                Preset Gradients
-              </label>
-              <div className="grid grid-cols-3 gap-3">
-                {predefinedGradients.map((grad) => (
-                  <button
-                    key={grad.name}
-                    onClick={() => handlePresetSelect(grad)}
-                    className="h-12 rounded-lg border-2 hover:border-purple-500 transition-all cursor-pointer"
-                    style={{
-                      backgroundImage: grad.value,
-                      borderColor:
-                        grad.value === gradient ? "#9333ea" : "#e5e7eb",
-                    }}
-                  />
-                ))}
               </div>
             </div>
 
-            <div className="flex justify-end gap-3">
+            <div className="p-6 border-t border-gray-600 flex justify-end gap-3">
               <button
                 onClick={() => {
                   if (setGradient) {
