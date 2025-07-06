@@ -57,7 +57,7 @@ const LandingPage = () => {
 
               <button
                 onClick={() => setIsSupportModalOpen(true)}
-                className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-white/10 rounded-lg"
+                className="cursor-pointer text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-white/10 rounded-lg"
               >
                 ☕ Support Us
               </button>
@@ -90,7 +90,7 @@ const LandingPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Get Started
               </motion.button>
@@ -131,7 +131,7 @@ Best regards,
                     "_blank"
                   );
                 }}
-                className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-500 hover:border-gray-400"
+                className="cursor-pointer bg-gray-600 hover:bg-gray-700 text-white px-6 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-500 hover:border-gray-400"
               >
                 🐛 Report Issue
               </motion.button>

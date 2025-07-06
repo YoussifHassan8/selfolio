@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-
+import img from "../assets/templateOnePreview.png";
 interface TemplateModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -20,7 +20,7 @@ const templates: Template[] = [
     name: "Modern Portfolio",
     description:
       "A clean, modern portfolio template with smooth animations and professional design",
-    preview: "/src/assets/template-one-preview.jpg",
+    preview: img,
     category: "Portfolio",
   },
   {
@@ -80,7 +80,7 @@ const TemplateModal = ({
               </div>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
+                className="cursor-pointer text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
               >
                 <svg
                   className="w-6 h-6"
@@ -150,9 +150,17 @@ Best regards,
                           : "bg-gradient-to-br from-blue-500 to-purple-600"
                       }`}
                     >
-                      <div className="text-white text-6xl font-bold opacity-20">
-                        {template.preview}
-                      </div>
+                      {typeof template.preview === 'string' && template.preview.startsWith('🎨') ? (
+                        <div className="text-white text-6xl font-bold opacity-20">
+                          {template.preview}
+                        </div>
+                      ) : (
+                        <img 
+                          src={template.preview} 
+                          alt={`${template.name} preview`}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                     </div>
 
@@ -176,7 +184,7 @@ Best regards,
                       </p>
 
                       <button
-                        className={`w-full py-2 px-4 rounded-lg text-sm font-medium transition-all duration-300 ${
+                        className={`cursor-pointer w-full py-2 px-4 rounded-lg text-sm font-medium transition-all duration-300 ${
                           template.id === "custom-portfolio"
                             ? "bg-gradient-to-r from-purple-500 to-blue-600 text-white hover:from-purple-600 hover:to-blue-700"
                             : "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700"

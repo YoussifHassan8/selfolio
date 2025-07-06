@@ -73,7 +73,7 @@ const SupportModal = ({ isOpen, onClose }: SupportModalProps) => {
               </div>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
+                className="cursor-pointer text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
               >
                 <svg
                   className="w-6 h-6"
@@ -120,7 +120,7 @@ const SupportModal = ({ isOpen, onClose }: SupportModalProps) => {
 
                   <button
                     onClick={() => copyToClipboard(method.account, method.id)}
-                    className={`w-full bg-gradient-to-r ${method.color} text-white py-2 px-4 rounded-lg text-sm font-medium hover:opacity-90 transition-all duration-300 flex items-center justify-center space-x-2`}
+                    className={`cursor-pointer w-full bg-gradient-to-r ${method.color} text-white py-2 px-4 rounded-lg text-sm font-medium hover:opacity-90 transition-all duration-300 flex items-center justify-center space-x-2`}
                   >
                     {copiedMethod === method.id ? (
                       <>
