@@ -96,6 +96,10 @@ export const exportAsReactProject = async (data: ProjectData) => {
         dependencies: {
           "@emailjs/browser": "^4.4.1",
           "@tailwindcss/vite": "^4.1.4",
+          "@types/jszip": "^3.4.0",
+          "@types/react-router-dom": "^5.3.3",
+          "file-saver": "^2.0.5",
+          jszip: "^3.10.1",
           motion: "^12.9.4",
           react: "^19.0.0",
           "react-colorful": "^5.6.1",
@@ -103,10 +107,12 @@ export const exportAsReactProject = async (data: ProjectData) => {
           "react-hot-toast": "^2.5.2",
           "react-icons": "^5.5.0",
           "react-intersection-observer": "^9.16.0",
+          "react-router-dom": "^7.6.3",
           tailwindcss: "^4.1.4",
         },
         devDependencies: {
           "@eslint/js": "^9.22.0",
+          "@types/file-saver": "^2.0.7",
           "@types/react": "^19.0.10",
           "@types/react-dom": "^19.0.4",
           "@vitejs/plugin-react": "^4.3.4",
@@ -1971,6 +1977,23 @@ export const exportAsReactProject = async (data: ProjectData) => {
           "sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==",
         license: "MIT",
       },
+      "node_modules/@types/file-saver": {
+        version: "2.0.7",
+        resolved:
+          "https://registry.npmjs.org/@types/file-saver/-/file-saver-2.0.7.tgz",
+        integrity:
+          "sha512-dNKVfHd/jk0SkR/exKGj2ggkB45MAkzvWCaqLUUgkyjITkGNzH8H+yUwr+BLJUBjZOe9w8X3wgmXhZDRg1ED6A==",
+        dev: true,
+        license: "MIT",
+      },
+      "node_modules/@types/history": {
+        version: "4.7.11",
+        resolved:
+          "https://registry.npmjs.org/@types/history/-/history-4.7.11.tgz",
+        integrity:
+          "sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==",
+        license: "MIT",
+      },
       "node_modules/@types/json-schema": {
         version: "7.0.15",
         resolved:
@@ -1980,12 +2003,21 @@ export const exportAsReactProject = async (data: ProjectData) => {
         dev: true,
         license: "MIT",
       },
+      "node_modules/@types/jszip": {
+        version: "3.4.0",
+        resolved: "https://registry.npmjs.org/@types/jszip/-/jszip-3.4.0.tgz",
+        integrity:
+          "sha512-GFHqtQQP3R4NNuvZH3hNCYD0NbyBZ42bkN7kO3NDrU/SnvIZWMS8Bp38XCsRKBT5BXvgm0y1zqpZWp/ZkRzBzg==",
+        license: "MIT",
+        dependencies: {
+          jszip: "*",
+        },
+      },
       "node_modules/@types/react": {
         version: "19.1.2",
         resolved: "https://registry.npmjs.org/@types/react/-/react-19.1.2.tgz",
         integrity:
           "sha512-oxLPMytKchWGbnQM9O7D67uPa9paTNxO7jVoNMXgkkErULBPhPARCfkKL9ytcIJJRGjbsVwW4ugJzyFFvm/Tiw==",
-        dev: true,
         license: "MIT",
         dependencies: {
           csstype: "^3.0.2",
@@ -2001,6 +2033,31 @@ export const exportAsReactProject = async (data: ProjectData) => {
         license: "MIT",
         peerDependencies: {
           "@types/react": "^19.0.0",
+        },
+      },
+      "node_modules/@types/react-router": {
+        version: "5.1.20",
+        resolved:
+          "https://registry.npmjs.org/@types/react-router/-/react-router-5.1.20.tgz",
+        integrity:
+          "sha512-jGjmu/ZqS7FjSH6owMcD5qpq19+1RS9DeVRqfl1FeBMxTDQAGwlMWOcs52NDoXaNKyG3d1cYQFMs9rCrb88o9Q==",
+        license: "MIT",
+        dependencies: {
+          "@types/history": "^4.7.11",
+          "@types/react": "*",
+        },
+      },
+      "node_modules/@types/react-router-dom": {
+        version: "5.3.3",
+        resolved:
+          "https://registry.npmjs.org/@types/react-router-dom/-/react-router-dom-5.3.3.tgz",
+        integrity:
+          "sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw==",
+        license: "MIT",
+        dependencies: {
+          "@types/history": "^4.7.11",
+          "@types/react": "*",
+          "@types/react-router": "*",
         },
       },
       "node_modules/@typescript-eslint/eslint-plugin": {
@@ -2515,6 +2572,24 @@ export const exportAsReactProject = async (data: ProjectData) => {
         dev: true,
         license: "MIT",
       },
+      "node_modules/cookie": {
+        version: "1.0.2",
+        resolved: "https://registry.npmjs.org/cookie/-/cookie-1.0.2.tgz",
+        integrity:
+          "sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==",
+        license: "MIT",
+        engines: {
+          node: ">=18",
+        },
+      },
+      "node_modules/core-util-is": {
+        version: "1.0.3",
+        resolved:
+          "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz",
+        integrity:
+          "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==",
+        license: "MIT",
+      },
       "node_modules/cosmiconfig": {
         version: "8.3.6",
         resolved:
@@ -3023,6 +3098,14 @@ export const exportAsReactProject = async (data: ProjectData) => {
           node: ">=16.0.0",
         },
       },
+      "node_modules/file-saver": {
+        version: "2.0.5",
+        resolved:
+          "https://registry.npmjs.org/file-saver/-/file-saver-2.0.5.tgz",
+        integrity:
+          "sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==",
+        license: "MIT",
+      },
       "node_modules/fill-range": {
         version: "7.1.1",
         resolved:
@@ -3211,6 +3294,13 @@ export const exportAsReactProject = async (data: ProjectData) => {
           node: ">= 4",
         },
       },
+      "node_modules/immediate": {
+        version: "3.0.6",
+        resolved: "https://registry.npmjs.org/immediate/-/immediate-3.0.6.tgz",
+        integrity:
+          "sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==",
+        license: "MIT",
+      },
       "node_modules/import-fresh": {
         version: "3.3.1",
         resolved:
@@ -3241,6 +3331,13 @@ export const exportAsReactProject = async (data: ProjectData) => {
         engines: {
           node: ">=0.8.19",
         },
+      },
+      "node_modules/inherits": {
+        version: "2.0.4",
+        resolved: "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+        integrity:
+          "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==",
+        license: "ISC",
       },
       "node_modules/is-arrayish": {
         version: "0.2.1",
@@ -3287,6 +3384,13 @@ export const exportAsReactProject = async (data: ProjectData) => {
         engines: {
           node: ">=0.12.0",
         },
+      },
+      "node_modules/isarray": {
+        version: "1.0.0",
+        resolved: "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz",
+        integrity:
+          "sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==",
+        license: "MIT",
       },
       "node_modules/isexe": {
         version: "2.0.0",
@@ -3392,6 +3496,19 @@ export const exportAsReactProject = async (data: ProjectData) => {
           node: ">=6",
         },
       },
+      "node_modules/jszip": {
+        version: "3.10.1",
+        resolved: "https://registry.npmjs.org/jszip/-/jszip-3.10.1.tgz",
+        integrity:
+          "sha512-xXDvecyTpGLrqFrvkrUSoxxfJI5AH7U8zxxtVclpsUtMCq4JQ290LY8AW5c7Ggnr/Y/oK+bQMbqK2qmtk3pN4g==",
+        license: "(MIT OR GPL-3.0-or-later)",
+        dependencies: {
+          lie: "~3.3.0",
+          pako: "~1.0.2",
+          "readable-stream": "~2.3.6",
+          setimmediate: "^1.0.5",
+        },
+      },
       "node_modules/keyv": {
         version: "4.5.4",
         resolved: "https://registry.npmjs.org/keyv/-/keyv-4.5.4.tgz",
@@ -3416,6 +3533,16 @@ export const exportAsReactProject = async (data: ProjectData) => {
         },
         engines: {
           node: ">= 0.8.0",
+        },
+      },
+      "node_modules/lie": {
+        version: "3.3.0",
+        resolved: "https://registry.npmjs.org/lie/-/lie-3.3.0.tgz",
+        integrity:
+          "sha512-UaiMJzeWRlEujzAuw5LokY1L5ecNQYZKfmyZ9L7wDHb/p5etKaxXhohBcrw0EYby+G/NA52vRSN4N39dxHAIwQ==",
+        license: "MIT",
+        dependencies: {
+          immediate: "~3.0.5",
         },
       },
       "node_modules/lightningcss": {
@@ -3885,6 +4012,13 @@ export const exportAsReactProject = async (data: ProjectData) => {
           url: "https://github.com/sponsors/sindresorhus",
         },
       },
+      "node_modules/pako": {
+        version: "1.0.11",
+        resolved: "https://registry.npmjs.org/pako/-/pako-1.0.11.tgz",
+        integrity:
+          "sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==",
+        license: "(MIT AND Zlib)",
+      },
       "node_modules/parent-module": {
         version: "1.0.1",
         resolved:
@@ -4018,6 +4152,14 @@ export const exportAsReactProject = async (data: ProjectData) => {
           node: ">= 0.8.0",
         },
       },
+      "node_modules/process-nextick-args": {
+        version: "2.0.1",
+        resolved:
+          "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz",
+        integrity:
+          "sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==",
+        license: "MIT",
+      },
       "node_modules/punycode": {
         version: "2.3.1",
         resolved: "https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz",
@@ -4146,6 +4288,65 @@ export const exportAsReactProject = async (data: ProjectData) => {
           node: ">=0.10.0",
         },
       },
+      "node_modules/react-router": {
+        version: "7.6.3",
+        resolved:
+          "https://registry.npmjs.org/react-router/-/react-router-7.6.3.tgz",
+        integrity:
+          "sha512-zf45LZp5skDC6I3jDLXQUu0u26jtuP4lEGbc7BbdyxenBN1vJSTA18czM2D+h5qyMBuMrD+9uB+mU37HIoKGRA==",
+        license: "MIT",
+        dependencies: {
+          cookie: "^1.0.1",
+          "set-cookie-parser": "^2.6.0",
+        },
+        engines: {
+          node: ">=20.0.0",
+        },
+        peerDependencies: {
+          react: ">=18",
+          "react-dom": ">=18",
+        },
+        peerDependenciesMeta: {
+          "react-dom": {
+            optional: true,
+          },
+        },
+      },
+      "node_modules/react-router-dom": {
+        version: "7.6.3",
+        resolved:
+          "https://registry.npmjs.org/react-router-dom/-/react-router-dom-7.6.3.tgz",
+        integrity:
+          "sha512-DiWJm9qdUAmiJrVWaeJdu4TKu13+iB/8IEi0EW/XgaHCjW/vWGrwzup0GVvaMteuZjKnh5bEvJP/K0MDnzawHw==",
+        license: "MIT",
+        dependencies: {
+          "react-router": "7.6.3",
+        },
+        engines: {
+          node: ">=20.0.0",
+        },
+        peerDependencies: {
+          react: ">=18",
+          "react-dom": ">=18",
+        },
+      },
+      "node_modules/readable-stream": {
+        version: "2.3.8",
+        resolved:
+          "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.8.tgz",
+        integrity:
+          "sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA==",
+        license: "MIT",
+        dependencies: {
+          "core-util-is": "~1.0.0",
+          inherits: "~2.0.3",
+          isarray: "~1.0.0",
+          "process-nextick-args": "~2.0.0",
+          "safe-buffer": "~5.1.1",
+          string_decoder: "~1.1.1",
+          "util-deprecate": "~1.0.1",
+        },
+      },
       "node_modules/resolve-from": {
         version: "4.0.0",
         resolved:
@@ -4236,6 +4437,14 @@ export const exportAsReactProject = async (data: ProjectData) => {
           "queue-microtask": "^1.2.2",
         },
       },
+      "node_modules/safe-buffer": {
+        version: "5.1.2",
+        resolved:
+          "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz",
+        integrity:
+          "sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==",
+        license: "MIT",
+      },
       "node_modules/scheduler": {
         version: "0.26.0",
         resolved: "https://registry.npmjs.org/scheduler/-/scheduler-0.26.0.tgz",
@@ -4253,6 +4462,22 @@ export const exportAsReactProject = async (data: ProjectData) => {
         bin: {
           semver: "bin/semver.js",
         },
+      },
+      "node_modules/set-cookie-parser": {
+        version: "2.7.1",
+        resolved:
+          "https://registry.npmjs.org/set-cookie-parser/-/set-cookie-parser-2.7.1.tgz",
+        integrity:
+          "sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==",
+        license: "MIT",
+      },
+      "node_modules/setimmediate": {
+        version: "1.0.5",
+        resolved:
+          "https://registry.npmjs.org/setimmediate/-/setimmediate-1.0.5.tgz",
+        integrity:
+          "sha512-MATJdZp8sLqDl/68LfQmbP8zKPLQNV6BIZoIgrscFDQ+RsvK/BxeDQOgyxKKoh0y/8h3BqVFnCqQ/gd+reiIXA==",
+        license: "MIT",
       },
       "node_modules/shebang-command": {
         version: "2.0.0",
@@ -4303,6 +4528,17 @@ export const exportAsReactProject = async (data: ProjectData) => {
         license: "BSD-3-Clause",
         engines: {
           node: ">=0.10.0",
+        },
+      },
+      "node_modules/string_decoder": {
+        version: "1.1.1",
+        resolved:
+          "https://registry.npmjs.org/string_decoder/-/string_decoder-1.1.1.tgz",
+        integrity:
+          "sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==",
+        license: "MIT",
+        dependencies: {
+          "safe-buffer": "~5.1.0",
         },
       },
       "node_modules/strip-json-comments": {
@@ -4545,6 +4781,14 @@ export const exportAsReactProject = async (data: ProjectData) => {
           punycode: "^2.1.0",
         },
       },
+      "node_modules/util-deprecate": {
+        version: "1.0.2",
+        resolved:
+          "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz",
+        integrity:
+          "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==",
+        license: "MIT",
+      },
       "node_modules/vite": {
         version: "6.3.3",
         resolved: "https://registry.npmjs.org/vite/-/vite-6.3.3.tgz",
@@ -4718,7 +4962,6 @@ export const exportAsReactProject = async (data: ProjectData) => {
       },
     },
   };
-
   const packageJson = {
     name: "selfolio",
     private: true,
@@ -4733,6 +4976,10 @@ export const exportAsReactProject = async (data: ProjectData) => {
     dependencies: {
       "@emailjs/browser": "^4.4.1",
       "@tailwindcss/vite": "^4.1.4",
+      "@types/jszip": "^3.4.0",
+      "@types/react-router-dom": "^5.3.3",
+      "file-saver": "^2.0.5",
+      jszip: "^3.10.1",
       motion: "^12.9.4",
       react: "^19.0.0",
       "react-colorful": "^5.6.1",
@@ -4740,10 +4987,12 @@ export const exportAsReactProject = async (data: ProjectData) => {
       "react-hot-toast": "^2.5.2",
       "react-icons": "^5.5.0",
       "react-intersection-observer": "^9.16.0",
+      "react-router-dom": "^7.6.3",
       tailwindcss: "^4.1.4",
     },
     devDependencies: {
       "@eslint/js": "^9.22.0",
+      "@types/file-saver": "^2.0.7",
       "@types/react": "^19.0.10",
       "@types/react-dom": "^19.0.4",
       "@vitejs/plugin-react": "^4.3.4",
