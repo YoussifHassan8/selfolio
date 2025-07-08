@@ -6518,7 +6518,6 @@ export default TechStack;
 }
 
 const Title = ({ name }: TitleProps) => {
-  console.log(name);
   return (
     <>
       <h1 className="font-bold text-4xl tracking-tight">
