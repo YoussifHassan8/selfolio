@@ -5126,27 +5126,6 @@ dist-ssr
   zip.file("src/vite-env.d.ts", viteEnvDts);
 
   // Create assets directory
-  const assetsDir = zip.folder("src/assets");
-  assetsDir?.file(
-    "README.md",
-    `# Assets Directory
-
-This directory contains all the static assets for your portfolio.
-
-## Images
-- Add your profile picture here
-- Add project preview images here
-- Add any other images you want to use in your portfolio
-
-## Icons
-- Add custom icons here if needed
-
-## Usage
-Reference these assets in your components using relative paths like:
-\`/src/assets/your-image.jpg\`
-
-Note: For the exported project to work properly, you'll need to add the actual image files to this directory.`
-  );
 
   // Create components with actual code
   const createComponents = () => {
@@ -6227,22 +6206,17 @@ const ProjectCard = ({
 
           <div className="flex flex-col justify-between space-y-6">
             <h3 className="text-2xl font-bold">{title}</h3>
-            <p className="text-gray-300 leading-relaxed">{description}</p>
+            <p className="text-gray-300 leading-relaxed">{description}</p>      
             <div className="flex flex-wrap gap-2">
               {technologies.map((tech, index) => (
                 <span
-                  key={index}
-                  className="px-3 py-1 text-sm font-medium rounded-full bg-gray-800 transition-transform hover:-translate-y-1 hover:shadow-lg duration-200"
-                  style={{
-                    backgroundColor: \`\${tech.color}20\`,
-                    color: tech.color,
-                  }}
+                 key={index}
+                className={\`px-3 py-1 text-sm font-medium rounded-full bg-gray-800 transition-transform hover:-translate-y-1 hover:shadow-lg duration-200 \${tech.color}\`}
                 >
                   {tech.name}
                 </span>
-              ))}
-            </div>
-
+                ))}
+          </div>
             <div className="flex gap-3 mt-4">
               {liveDemo && (
                 <a
@@ -7021,7 +6995,7 @@ export const IconOptions = [
       );
 
       // Create other subdirectories
-      ["experience", "projects", "skills"].forEach((dir) => {
+      ["skills"].forEach((dir) => {
         componentsDir?.folder(dir);
       });
     };
