@@ -32,7 +32,7 @@ const EditingColorModal = ({
 }: EditingColorModalProps) => {
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-      <div className="bg-[#1e293b] p-6 rounded-lg shadow-xl text-white max-w-md w-full">
+      <div className="bg-[#1e293b] p-8 rounded-lg shadow-xl text-white max-w-md w-full max-h-[80vh] overflow-y-auto overflow-x-hidden">
         <h2 className="text-2xl font-bold mb-4">Edit Button Colors</h2>
 
         <div className="mb-6">
@@ -58,28 +58,28 @@ const EditingColorModal = ({
             Custom Gradient
           </label>
           <div className="flex gap-4 mb-4">
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <HexColorPicker
                 color={resumeColor1}
                 onChange={setResumeColor1}
-                className="mb-2"
+                className="mb-2 max-w-full"
               />
               <input
                 value={resumeColor1}
                 onChange={(e) => setResumeColor1(e.target.value)}
-                className="w-full p-1 text-center bg-gray-700 rounded"
+                className="w-full p-1 text-center bg-gray-700 rounded max-w-full"
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <HexColorPicker
                 color={resumeColor2}
                 onChange={setResumeColor2}
-                className="mb-2"
+                className="mb-2 max-w-full"
               />
               <input
                 value={resumeColor2}
                 onChange={(e) => setResumeColor2(e.target.value)}
-                className="w-full p-1 text-center bg-gray-700 rounded"
+                className="w-full p-1 text-center bg-gray-700 rounded max-w-full"
               />
             </div>
           </div>
