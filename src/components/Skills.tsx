@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import SkillCard from "./ui/SkillCard";
 import TitleTwo from "./ui/TitleTwo";
-import { IconType } from "react-icons";
 import EditSkillsButton from "./skills/EditSkillsButton";
 import SkillsDescription from "./skills/SkillsDescription";
 import AddNewSkillButton from "./skills/AddNewSkillButton";
@@ -9,7 +8,7 @@ import AddSkillModal from "./skills/AddSkillModal";
 import { skillsContext } from "./about/context/skillsContext";
 
 interface Skill {
-  icon: IconType;
+  icon: string;
   name: string;
   color: string;
 }
@@ -48,11 +47,10 @@ const Skills = () => {
 
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
         {skills.map((skill, index) => {
-          const Icon = skill.icon;
           return (
             <SkillCard
               key={skill.name}
-              icon={Icon}
+              icon={skill.icon}
               name={skill.name}
               color={skill.color}
               index={index}

@@ -105,14 +105,12 @@ function PortfolioEditor() {
   const [contactGradient, setContactGradient] = useState(
     predefinedGradients[0].value
   );
-  console.log(skills);
   const handleExport = async () => {
     const convertedSkills = skills.map((skill) => ({
-      icon: skill.icon.name,
+      icon: skill.icon,
       name: skill.name,
       color: skill.color,
     }));
-    console.log(convertedSkills);
 
     const convertedExperience = experience.map((exp) => ({
       title: exp.title,

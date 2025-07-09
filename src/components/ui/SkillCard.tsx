@@ -1,8 +1,9 @@
-import { IconType } from "react-icons";
 import { FaTrash } from "react-icons/fa";
+import * as SiIcons from "react-icons/si";
+import * as TbIcons from "react-icons/tb";
 
 interface SkillCardProps {
-  icon: IconType;
+  icon: string;
   name: string;
   color: string;
   index: number;
@@ -11,13 +12,17 @@ interface SkillCardProps {
 }
 
 const SkillCard = ({
-  icon: Icon,
+  icon: iconName,
   name,
   color,
   index,
   isEditing = false,
   onDelete,
 }: SkillCardProps) => {
+  const Icon =
+    SiIcons[iconName as keyof typeof SiIcons] ||
+    TbIcons[iconName as keyof typeof TbIcons];
+
   return (
     <div
       className={`group relative flex flex-col items-center justify-center p-6 bg-[#1a191e] rounded-lg 
@@ -31,7 +36,7 @@ const SkillCard = ({
         <button
           onClick={() => onDelete?.(name)}
           className={`absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full 
-            "bg-red-500 hover:bg-red-600 text-white transition-colors z-20 cursor-pointer`}
+            bg-red-500 hover:bg-red-600 text-white transition-colors z-20 cursor-pointer`}
           aria-label="Remove skill"
         >
           <FaTrash size={12} />
@@ -43,7 +48,7 @@ const SkillCard = ({
         relative z-10 `}
         style={{ color }}
       >
-        <Icon />
+        {Icon ? <Icon /> : null}
       </div>
 
       <span

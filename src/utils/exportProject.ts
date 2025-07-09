@@ -6939,7 +6939,7 @@ export const NavBarContent: string[] = [
   "Contact",
 ];
 interface SkillItem {
-  icon: IconType;
+  icon: string;
   name: string;
   color: string;
 }

@@ -1,8 +1,7 @@
 import { createContext, useContext } from "react";
-import { IconType } from "react-icons";
 
 interface SkillItem {
-  icon: IconType;
+  icon: string;
   name: string;
   color: string;
 }
