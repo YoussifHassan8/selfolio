@@ -108,7 +108,7 @@ function PortfolioEditor() {
   console.log(skills);
   const handleExport = async () => {
     const convertedSkills = skills.map((skill) => ({
-      icon: (skill.icon as any).name || "SiReact",
+      icon: skill.icon.name,
       name: skill.name,
       color: skill.color,
     }));
